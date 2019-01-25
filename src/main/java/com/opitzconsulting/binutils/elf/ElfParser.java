@@ -9,4 +9,8 @@ public class ElfParser {
     public Elf parse(Path elfFilePath) throws IOException {
         return new ElfWrapper(new nl.lxtreme.binutils.elf.Elf(FileChannel.open(elfFilePath, StandardOpenOption.READ)));
     }
+
+    public Elf parse(FileChannel channel) throws IOException {
+        return new ElfWrapper(new nl.lxtreme.binutils.elf.Elf(channel));
+    }
 }
